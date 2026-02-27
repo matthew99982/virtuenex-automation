@@ -28,6 +28,11 @@ export interface PASContent {
   };
 }
 
+export interface ServiceFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceData {
   slug: string;
   path: string;
@@ -40,6 +45,7 @@ export interface ServiceData {
   features: ServiceFeature[];
   benefits: string[];
   pas: PASContent;
+  faqs: ServiceFAQ[];
 }
 
 export const services: ServiceData[] = [
@@ -92,6 +98,28 @@ export const services: ServiceData[] = [
         ],
       },
     },
+    faqs: [
+      {
+        question: 'How long does it take to build and launch a chat assistant?',
+        answer: 'Most AI chat assistants are fully built and live within 2 to 3 weeks. This includes designing the conversation flows, training the AI on your listings and FAQs, integrating it with your website and CRM, and thorough testing before go-live.',
+      },
+      {
+        question: 'What platform do you use to build the chat assistants?',
+        answer: 'We build all our AI chat assistants on Voiceflow, a leading conversational AI platform trusted by enterprise teams worldwide. Voiceflow gives us the flexibility to design highly customised conversation flows that match your brand voice and handle complex real estate queries.',
+      },
+      {
+        question: 'Can the assistant integrate with my existing CRM?',
+        answer: 'Yes. Our chat assistants can push qualified lead data directly into popular CRMs including HubSpot, Salesforce, Pipedrive, and others via API or native integration. Every conversation, contact detail, and lead score flows automatically into your existing workflow.',
+      },
+      {
+        question: 'What happens when the AI does not know the answer?',
+        answer: 'The assistant is designed to gracefully handle unknown queries by capturing the visitor\'s contact details and flagging the question for your team. It never leaves a visitor stuck, and you receive an instant notification so a human can follow up promptly.',
+      },
+      {
+        question: 'Can I customise the conversation flows after launch?',
+        answer: 'Absolutely. You have full visibility into your assistant\'s conversation flows and we can update them any time your listings, services, or processes change. We also provide ongoing optimisation based on real conversation data to continually improve performance.',
+      },
+    ],
   },
   {
     slug: 'inbound-phone-agents',
@@ -142,6 +170,28 @@ export const services: ServiceData[] = [
         ],
       },
     },
+    faqs: [
+      {
+        question: 'How long does it take to set up an inbound phone agent?',
+        answer: 'Your AI phone agent is fully configured and live within 2 weeks. Our team handles the entire process — scripting the conversation flows, connecting your phone number, syncing your calendar, and testing the agent across dozens of real-call scenarios before we go live.',
+      },
+      {
+        question: 'What platform powers the voice AI?',
+        answer: 'We build our inbound phone agents on Vapi AI, one of the most advanced voice AI platforms available. Vapi delivers ultra-low latency responses and natural-sounding speech, which means callers experience a smooth, human-like conversation rather than the stilted pauses you get with older phone systems.',
+      },
+      {
+        question: 'Does the AI voice sound natural, or will callers know it is a bot?',
+        answer: 'Our agents are built to sound as natural as possible, with realistic pacing, appropriate pauses, and conversational language. Many callers do not realise they are speaking to an AI. That said, we always recommend being transparent with callers if they ask directly.',
+      },
+      {
+        question: 'Can the AI transfer calls to a human agent?',
+        answer: 'Yes. When a caller is identified as a hot lead or requires complex handling, the AI performs a warm transfer to an available agent. Your team receives a brief handoff summary before they pick up so they are always prepared.',
+      },
+      {
+        question: 'What happens if the AI cannot answer a caller\'s question?',
+        answer: 'If the agent encounters a question outside its trained knowledge, it politely captures the caller\'s details and informs them that a team member will follow up shortly. You receive an instant notification with the call details so nothing slips through the cracks.',
+      },
+    ],
   },
   {
     slug: 'real-estate-websites',
@@ -192,6 +242,28 @@ export const services: ServiceData[] = [
         ],
       },
     },
+    faqs: [
+      {
+        question: 'How quickly can my website be built and launched?',
+        answer: 'Your new real estate website is designed, built, and delivered within 5 to 7 days. We move fast without cutting corners — every site goes through a thorough review and testing process before handoff so you launch with confidence.',
+      },
+      {
+        question: 'What tools do you use to build the websites?',
+        answer: 'We build using Bolt for rapid AI-assisted development combined with VS Code for precise, hand-crafted customisation. This combination gives us both speed and the fine-grained control needed to create a site that is truly unique to your brand.',
+      },
+      {
+        question: 'Will I be able to update content on the site myself?',
+        answer: 'Yes. We build every site with content management in mind so you can update listings, team profiles, blog posts, and other content without needing a developer. We also provide a short walkthrough after launch so your team knows exactly how to make changes.',
+      },
+      {
+        question: 'Is the website mobile-friendly?',
+        answer: 'Every site we build is mobile-first, meaning it is designed for phones before desktops. Given that the majority of property searches now happen on mobile, this is non-negotiable. Your site will look and perform flawlessly across all screen sizes.',
+      },
+      {
+        question: 'Can the website integrate with my CRM and other tools?',
+        answer: 'Yes. We connect your website to your CRM, email marketing platform, calendar, and any other tools in your stack. Lead forms, enquiry submissions, and property alerts all flow automatically into the right systems without manual intervention.',
+      },
+    ],
   },
   {
     slug: 'intelligent-data-sync',
@@ -242,6 +314,32 @@ export const services: ServiceData[] = [
         ],
       },
     },
+    faqs: [
+      {
+        question: 'Which CRMs and portals does Intelligent Data Sync support?',
+        answer: 'We integrate with all major real estate CRMs including HubSpot, Salesforce, Pipedrive, and Zoho, as well as leading portals like Rightmove, Zoopla, OnTheMarket, and Zillow. If your platform has an API or webhook capability, we can connect to it.',
+      },
+      {
+        question: 'How long does the initial setup take?',
+        answer: 'Most clients have their data sync fully operational within 2 to 3 weeks. Setup time depends on the number of systems being connected and the complexity of your existing data structure. Our team handles the entire configuration — you just need to provide access.',
+      },
+      {
+        question: 'Is my data secure during sync?',
+        answer: 'Absolutely. All data transfers are encrypted end-to-end using enterprise-grade encryption standards. We never store your client data on our servers beyond what is required for the sync process, and all connections are authenticated with secure API credentials.',
+      },
+      {
+        question: 'What happens if a sync connection breaks or an error occurs?',
+        answer: 'Our system monitors every sync connection in real time and alerts you immediately if anything goes wrong. Failed syncs are automatically retried, and our support team is notified so we can investigate and resolve any issues before they impact your workflow.',
+      },
+      {
+        question: 'Can it handle document uploads and attachments, not just text data?',
+        answer: 'Yes. Our document processing pipeline can ingest PDFs, scanned contracts, valuation reports, and other file types. It extracts key data fields automatically and files the documents in the correct location within your CRM or document management system.',
+      },
+      {
+        question: 'Will it work with our existing tech stack without disrupting current processes?',
+        answer: 'Our sync layer is designed to sit alongside your existing tools without replacing or disrupting them. We map your current data flows first, then layer in automation incrementally so your team experiences minimal disruption during the transition.',
+      },
+    ],
   },
 ];
 

@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, AlertTriangle, TrendingDown, CheckCircle, Zap } from 'lucide-react';
-import type { ServiceData } from '../lib/services';
+import { ArrowRight, ArrowLeft, AlertTriangle, TrendingDown, CheckCircle, Zap, HelpCircle, ChevronDown } from 'lucide-react';
+import type { ServiceData, ServiceFAQ } from '../lib/services';
 import { colorMap } from '../lib/services';
 import AnimatedSection from './AnimatedSection';
 
@@ -182,6 +183,76 @@ function FeaturesSection({ service }: { service: ServiceData }) {
   );
 }
 
+function FAQItem({ faq, isOpen, onToggle }: { faq: ServiceFAQ; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="border-b border-white/[0.06] last:border-b-0">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between gap-4 py-6 text-left group"
+      >
+        <span className={`text-base sm:text-lg font-medium transition-colors duration-200 ${isOpen ? 'text-white' : 'text-gray-300 group-hover:text-white'}`}>
+          {faq.question}
+        </span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="shrink-0"
+        >
+          <ChevronDown className={`w-5 h-5 transition-colors duration-200 ${isOpen ? 'text-gold-400' : 'text-gray-500'}`} />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="overflow-hidden"
+          >
+            <p className="pb-6 text-gray-400 leading-relaxed pr-8">{faq.answer}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function ServiceFAQSection({ service }: { service: ServiceData }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section className="relative py-20 sm:py-28">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-sm text-gold-400 mb-6">
+            <HelpCircle className="w-3.5 h-3.5" />
+            FAQ
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Common Questions
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed">
+            Everything you need to know about {service.title.toLowerCase()}.
+          </p>
+        </AnimatedSection>
+        <AnimatedSection delay={0.15}>
+          <div className="glass-card glow-border p-6 sm:p-8">
+            {service.faqs.map((faq, i) => (
+              <FAQItem
+                key={i}
+                faq={faq}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              />
+            ))}
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 export default function ServicePageTemplate({ service }: ServicePageTemplateProps) {
   const colors = colorMap[service.color];
 
@@ -234,6 +305,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
       <AgitationSection service={service} />
       <SolutionSection service={service} />
       <FeaturesSection service={service} />
+      <ServiceFAQSection service={service} />
 
       <section className="relative py-20 sm:py-24">
         <div className="absolute inset-0 radial-glow-hero opacity-50" />
