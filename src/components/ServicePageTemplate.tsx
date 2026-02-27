@@ -261,8 +261,23 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0 radial-glow-hero" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]">
-          <div className="absolute inset-0 rounded-full bg-gold-500 blur-[150px] opacity-[0.07]" />
+
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]">
+          <motion.div
+            animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.13, 0.08] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute inset-0 rounded-full blur-[180px]"
+            style={{ background: 'rgba(120, 40, 200, 0.15)' }}
+          />
+        </div>
+
+        <div className="absolute top-[40%] right-1/3 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.06, 0.11, 0.06] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+            className="absolute inset-0 rounded-full blur-[150px]"
+            style={{ background: 'rgba(234, 179, 8, 0.15)' }}
+          />
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
