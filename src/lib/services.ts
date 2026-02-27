@@ -1,7 +1,7 @@
 import {
   Bot, PhoneCall, Layout, Database,
   MessageSquare, Globe, Users, Zap, Clock, BarChart3,
-  Phone, CalendarCheck, FileText, Search, RefreshCw, Shield,
+  Phone, CalendarCheck, FileText, Search, RefreshCw, Shield, Smartphone,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -55,18 +55,18 @@ export const services: ServiceData[] = [
     icon: Bot,
     title: 'AI Chat Assistants',
     subtitle: 'Your 24/7 digital team member',
-    description: 'Handle FAQs, showcase listings, and capture leads 24/7 in real-time. Your AI assistant never sleeps, never takes a break, and always knows your inventory.',
-    heroDescription: 'Deploy intelligent chat assistants that handle lead inquiries, showcase property listings, and qualify prospects in real-time. Built specifically for real estate conversations, our AI understands property terminology, local market context, and buyer intent.',
+    description: 'Handle FAQs, showcase listings, and capture leads 24/7 — on your website, WhatsApp, or Instagram. Your AI assistant never sleeps, never takes a break, and always knows your inventory.',
+    heroDescription: 'Deploy intelligent chat assistants on your website, WhatsApp, or Instagram — wherever your clients already spend their time. Built specifically for real estate conversations, our AI handles lead inquiries, showcases listings, and qualifies prospects in real-time across every channel.',
     color: 'gold',
     features: [
       { icon: MessageSquare, text: 'Natural language conversations that feel human' },
-      { icon: Globe, text: 'Multi-language support for diverse markets' },
+      { icon: Smartphone, text: 'Deploy on your website, WhatsApp, or Instagram' },
       { icon: Users, text: 'Instant lead qualification and scoring' },
       { icon: Zap, text: 'Automated listing recommendations based on buyer criteria' },
       { icon: Clock, text: 'After-hours coverage that never misses a lead' },
       { icon: BarChart3, text: 'Conversation analytics and conversion tracking' },
     ],
-    benefits: ['Instant lead qualification', 'Listing recommendations', 'Multi-language support'],
+    benefits: ['Website, WhatsApp & Instagram', 'Instant lead qualification', 'Listing recommendations'],
     pas: {
       problem: {
         headline: 'Your website visitors are leaving without a trace',
@@ -99,6 +99,10 @@ export const services: ServiceData[] = [
       },
     },
     faqs: [
+      {
+        question: 'Where can the chat assistant be deployed?',
+        answer: 'We can deploy your AI chat assistant on your website, WhatsApp, and/or Instagram — whichever channels your clients are already using. Many clients run all three simultaneously, so a lead can start a conversation on Instagram, continue it on WhatsApp, and book a viewing directly from your website, all handled by the same AI.',
+      },
       {
         question: 'How long does it take to build and launch a chat assistant?',
         answer: 'Most AI chat assistants are fully built and live within 2 to 3 weeks. This includes designing the conversation flows, training the AI on your listings and FAQs, integrating it with your website and CRM, and thorough testing before go-live.',
